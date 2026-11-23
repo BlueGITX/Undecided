@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#1a0f33">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>MindLend – Prototype</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Poppins:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Order matters: base → theme (light/dark) → web layout (desktop) -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/web-layout.css">
+</head>
+<body>
+<!-- #ph = app frame (phone-shaped on small screens, full window on desktop). Every screen is drawn into #v -->
+<div id="ph">
+    <!-- Desktop navigation. Hidden on phones; shown on signed-in screens (see syncSB in js/core/router.js) -->
+    <aside id="sb" aria-label="Main navigation">
+        <div class="sb-logo"><img src="../assets/img/logo.webp" alt=""><span>Mind<b>Lend</b></span></div>
+        <nav>
+            <button type="button" data-a="tab" data-k="home"><img src="../assets/img/nav/home.webp" alt="">Home</button>
+            <button type="button" data-a="tab" data-k="search"><img src="../assets/img/nav/search.webp" alt="">Search</button>
+            <button type="button" data-a="tab" data-k="msg"><img src="../assets/img/nav/messages.webp" alt="">Messages</button>
+            <button type="button" data-a="tab" data-k="rev"><img src="../assets/img/nav/reviews.webp" alt="">Reviews</button>
+            <button type="button" data-a="tab" data-k="profile"><img src="../assets/img/nav/profile.webp" alt="">Profile</button>
+        </nav>
+        <div class="sb-user" id="sbu"></div>
+    </aside>
+    <div id="v"></div>
+</div>
+
+<!-- Classic scripts (no bundler needed; also works from file://). Load order = dependency order. -->
+<!-- 1. data + services (the parts that change when the backend arrives) -->
+<script src="../js/data/mock-data.js"></script>
+<script src="../js/services/storage.js"></script>
+<script src="../js/services/api.js"></script>
+<!-- 2. core -->
+<script src="../js/core/state.js"></script>
+<script src="../js/core/utils.js"></script>
+<script src="../js/ui/components.js"></script>
+<script src="../js/core/router.js"></script>
+<!-- 3. screens -->
+<script src="../js/views/auth.js"></script>
+<script src="../js/views/setup.js"></script>
+<script src="../js/views/home.js"></script>
+<script src="../js/views/people.js"></script>
+<script src="../js/views/messages.js"></script>
+<script src="../js/views/reviews.js"></script>
+<script src="../js/views/profile.js"></script>
+<script src="../js/views/help.js"></script>
+<script src="../js/views/overlays.js"></script>
+<!-- 4. behaviour -->
+<script src="../js/actions/auth.js"></script>
+<script src="../js/actions/setup.js"></script>
+<script src="../js/actions/home.js"></script>
+<script src="../js/actions/social.js"></script>
+<script src="../js/actions/profile.js"></script>
+<script src="../js/core/events.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

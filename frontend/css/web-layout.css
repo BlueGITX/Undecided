@@ -1,0 +1,273 @@
+/* ================= WEB LAYOUT (desktop / large screens) ================= */
+#sb {
+    display: none;
+}
+@media (min-width: 900px) {
+    :root {
+        --gut: max(28px, calc((100% - 1040px) / 2));
+    }
+    html,
+    body {
+        overflow: hidden;
+    }
+    #ph {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: radial-gradient(ellipse 70% 60% at 55% 15%, #3a1a7a 0, var(--d) 70%);
+    }
+    /* sidebar */
+    #ph.has-sb #sb {
+        display: flex;
+    }
+    #ph.has-sb #v {
+        left: 268px;
+    }
+    #sb {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 268px;
+        flex-direction: column;
+        padding: 24px 16px 18px;
+        background: linear-gradient(180deg, #2f1760, #1a0f33);
+        color: #fff;
+        border-right: 1px solid rgba(167, 139, 250, 0.25);
+        z-index: 2;
+    }
+    .sb-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 8px 26px;
+        font:
+                700 23px Outfit,
+                Inter,
+                system-ui,
+                sans-serif;
+    }
+    .sb-logo img {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+    }
+    .sb-logo b {
+        color: #8b5cf6;
+    }
+    #sb nav {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+    #sb nav button {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 9px 12px;
+        border: 0;
+        border-radius: 14px;
+        background: none;
+        color: #e6dcff;
+        font:
+                500 15px Inter,
+                system-ui,
+                sans-serif;
+        text-align: left;
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+    #sb nav button img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+    }
+    #sb nav button:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+    #sb nav button.on {
+        background: rgba(139, 92, 246, 0.35);
+        color: #fff;
+        font-weight: 600;
+        box-shadow: inset 0 0 0 1px rgba(167, 139, 250, 0.5);
+    }
+    .sb-user {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.07);
+    }
+    .sb-name {
+        flex: 1;
+        min-width: 0;
+    }
+    .sb-name b {
+        display: block;
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .sb-name small {
+        display: block;
+        font-size: 11px;
+        color: #b3a3da;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .sb-out {
+        border: 1px solid rgba(167, 139, 250, 0.4);
+        background: none;
+        color: #e6dcff;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .sb-out:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    /* signed-in screens */
+    .app .tb {
+        display: none;
+    }
+    .app .hd .br,
+    .app .hd > .br {
+        display: none;
+    }
+    .app .hd .tp {
+        justify-content: flex-end;
+    }
+    .app .hd,
+    .app .pf,
+    .app .pf2,
+    .app .bd,
+    .app .cm {
+        padding-left: var(--gut) !important;
+        padding-right: var(--gut) !important;
+    }
+    .app .hd {
+        padding-top: 20px;
+    }
+    .app .hd h1 {
+        font-size: 40px;
+    }
+    .app .hd .pl {
+        max-width: 540px;
+    }
+    .app .hd .in {
+        max-width: 560px;
+    }
+    .pf .bk {
+        left: var(--gut);
+    }
+    .pf .st {
+        right: var(--gut);
+    }
+    .pf2 .btn {
+        right: var(--gut) !important;
+    }
+    .app .bd {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        gap: 14px;
+        align-content: start;
+        padding-top: 22px;
+        padding-bottom: 36px;
+    }
+    .app .bd > * {
+        grid-column: 1/-1;
+        margin-bottom: 0;
+    }
+    .app .bd > .cd,
+    .app .bd > .rvc,
+    .app .bd > .cd.c {
+        grid-column: auto;
+        margin-bottom: 0;
+    }
+    .app .bd > .cd.col {
+        grid-column: auto;
+    }
+    .app .bd > .cd.col:first-child {
+        grid-column: span 2;
+    }
+    .app .bd > .fld,
+    .app .bd > .tp,
+    .app .bd > .btn,
+    .app .bd > .pk,
+    .app .bd > .lb,
+    .app .bd > .lb2,
+    .app .bd > label.in {
+        max-width: 560px;
+    }
+    .app .bd > h3 {
+        margin: 6px 0 0;
+    }
+    .app .stars {
+        justify-content: flex-start;
+    }
+    .app .pf,
+    .app .pf2 {
+        padding-bottom: 22px;
+    }
+    .dim .md {
+        max-width: 420px;
+    }
+    .tt {
+        bottom: 32px;
+    }
+    /* sign in / sign up / setup: centred column */
+    .dk:not(.ob):not(.spl):not(.sp2) {
+        padding-left: max(24px, calc((100% - 460px) / 2));
+        padding-right: max(24px, calc((100% - 460px) / 2));
+    }
+    .ob {
+        padding-left: max(24px, calc((100% - 460px) / 2));
+        padding-right: max(24px, calc((100% - 460px) / 2));
+    }
+    #v > .photo-choice {
+        flex: none;
+        align-self: center;
+        margin: auto;
+        width: 100%;
+        max-width: 640px;
+        max-height: calc(100% - 40px);
+        border-radius: 28px;
+        box-shadow: 0 24px 90px #000a;
+    }
+}
+@media (min-width: 900px) and (max-height: 760px) {
+    .app .hd h1 {
+        font-size: 32px;
+    }
+}
+@media (min-width: 900px) {
+    .app .bd > .cd.col.ab-c {
+        grid-column: 1/-1;
+        justify-self: center;
+        width: 100%;
+        max-width: 680px;
+    }
+    .app .bd > .btn.so {
+        grid-column: 1/-1;
+        max-width: none;
+        width: 100%;
+    }
+}
+@media (min-width: 1000px) {
+    .app .bd > .btn.so {
+        grid-column: 1/3;
+    }
+}
+.bub {
+    width: fit-content;
+}
